@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "../platform/window.hpp"
+#include "./renderer.hpp"
 
 namespace cge {
     class Engine {
@@ -15,6 +16,7 @@ namespace cge {
 
     private:
         std::unique_ptr<Window> window;
+        std::unique_ptr<Renderer> renderer;
     };
 }
 
