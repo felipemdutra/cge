@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "../platform/window.hpp"
-#include "./renderer.hpp"
+#include "./renderer/renderer.hpp"
 
 namespace cge {
     class Engine {
