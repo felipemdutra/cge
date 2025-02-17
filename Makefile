@@ -1,7 +1,7 @@
 # Compiler and Flags
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -I.
-LDFLAGS = -lglfw -lGLEW -lGL -lm -ldl -lpthread
+LDFLAGS = -g -lglfw -lGLEW -lGL -lm -ldl -lpthread
 
 # Project Structure
 SRC_DIR = src
