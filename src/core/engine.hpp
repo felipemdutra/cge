@@ -1,22 +1,22 @@
 #pragma once
 
-#include <memory>
-
-#include "../platform/window.hpp"
-#include "./renderer/renderer.hpp"
 
 namespace cge {
+    class Window;
+    class Renderer;
+
     class Engine {
     public:
-        Engine();
+        Engine(Window& window, Renderer& renderer);
         ~Engine();
 
-        bool init();
         void run();
 
     private:
-        std::unique_ptr<Window> window;
-        std::unique_ptr<Renderer> renderer;
+        void update();
+
+        Window& window;
+        Renderer& renderer;
     };
 }
 
