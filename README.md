@@ -1,12 +1,13 @@
 # CGE
 
-CGE (Core Game Engine) is a Game Engine focused on core features and performance. It is written in C++ and uses OpenGL for rendering.
+CGE (Core Game Engine) is a Game Engine focused on core features and performance. 
+It is written in C++ and uses OpenGL for rendering.
 
 ## Current Features
 - Simple Rendering
 - Input Handling
 
-I know, pretty embarrassing. But I'm working on it while having school for 9:30 hours a day, so please be patient.
+I know, pretty embarrassing. But I'm working on it while having school for 9:30 hours a day AND learning Engine Architecture, so please be patient.
 
 ### Notes:
 The renderer currently initializes a VAO and VBO for a simple triangle.
