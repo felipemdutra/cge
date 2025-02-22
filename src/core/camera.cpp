@@ -5,20 +5,20 @@
 using namespace cge;
 using namespace glm;
 
-Camera::Camera() : m_pos(0.0f, 0.0f, 0.0f), m_front(0.0f, 0.0f, -1.0f),
-    m_up(0.0f, 1.0f, 0.0f), m_fov(45.0f), m_aspectRatio(4.0f / 3.0f), 
-    m_nearPlane(0.1f), m_farPlane(100.0f), m_yaw(YAW), m_pitch(PITCH) { }
+Camera::Camera() : mPos(0.0f, 0.0f, 0.0f), mFront(0.0f, 0.0f, -1.0f),
+    mUp(0.0f, 1.0f, 0.0f), mFov(45.0f), mAspectRatio(4.0f / 3.0f), 
+    mNearPlane(0.1f), mFarPlane(100.0f), mYaw(YAW), mPitch(PITCH) { }
 
 Camera::~Camera() { }
 
 bool Camera::init(float fov, float aspectRatio, float nearPlane, float farPlane) {
-    m_fov = fov;
-    m_aspectRatio = aspectRatio;
-    m_nearPlane = nearPlane;
-    m_farPlane = farPlane;
+    mFov = fov;
+    mAspectRatio = aspectRatio;
+    mNearPlane = nearPlane;
+    mFarPlane = farPlane;
 
-    m_viewMatrix = lookAt(m_pos, m_pos + m_front, m_up);
-    m_projectionMatrix = perspective(radians(m_fov), m_aspectRatio, m_nearPlane, m_farPlane);
+    mViewMatrix = lookAt(mPos, mPos + mFront, mUp);
+    mProjectionMatrix = perspective(radians(mFov), mAspectRatio, mNearPlane, mFarPlane);
 
     return true;
 }

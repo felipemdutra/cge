@@ -17,32 +17,31 @@ namespace cge {
         bool init(float fov, float aspectRatio, float nearPlane, float farPlane);
 
         void update();
-        void move(glm::vec3 direction);
 
         glm::mat4 getViewMatrix();
         glm::mat4 getProjectionMatrix();
 
     private:
-        glm::vec3 m_pos;
-        glm::vec3 m_front;
-        glm::vec3 m_up;
-        glm::vec3 m_right;
-        glm::vec3 m_worldUp;
+        glm::vec3 mPos;
+        glm::vec3 mFront;
+        glm::vec3 mUp;
+        glm::vec3 mRight;
+        glm::vec3 mWorldUp;
 
-        glm::mat4 m_viewMatrix;
-        glm::mat4 m_projectionMatrix;
+        glm::mat4 mViewMatrix;
+        glm::mat4 mProjectionMatrix;
 
-        float m_fov;
-        float m_aspectRatio;
-        float m_nearPlane;
-        float m_farPlane;
+        float mFov;
+        float mAspectRatio;
+        float mNearPlane;
+        float mFarPlane;
 
-        float m_yaw;
-        float m_pitch;
+        float mYaw;
+        float mPitch;
 
-        float m_movementSpeed;
-        float m_mouseSensitivity;
-        float m_zoom;
+        float mMovementSpeed;
+        float mMouseSensitivity;
+        float mZoom;
     };
 } // namespace cge
 
