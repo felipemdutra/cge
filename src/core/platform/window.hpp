@@ -31,7 +31,7 @@ namespace cge {
         void pollEvents();
 
     private:
-        GLFWwindow* window;
+        GLFWwindow* mWindow;
     };
 }
 

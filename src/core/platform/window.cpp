@@ -5,7 +5,7 @@
 
 using namespace cge;
 
-Window::Window() : window(nullptr) { }
+Window::Window() : mWindow(nullptr) { }
 
 bool Window::init(int width, int height, std::string title) {
     if (!glfwInit()) {
@@ -16,13 +16,13 @@ bool Window::init(int width, int height, std::string title) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
-    if (!window) {
+    mWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
+    if (!mWindow) {
         glfwTerminate();
         return false;
     }
 
-    glfwMakeContextCurrent(window);
+    glfwMakeContextCurrent(mWindow);
 
     if (glewInit() != GLEW_OK) {
         return false;
@@ -32,7 +32,7 @@ bool Window::init(int width, int height, std::string title) {
 }
 
 Window::~Window() {
-    glfwDestroyWindow(window);
+    glfwDestroyWindow(mWindow);
     glfwTerminate();
 }
 
@@ -42,15 +42,15 @@ void Window::update() {
 }
 
 void Window::setShouldClose(bool value) {
-    glfwSetWindowShouldClose(window, value);
+    glfwSetWindowShouldClose(mWindow, value);
 }
 
 bool Window::shouldClose() const {
-    return glfwWindowShouldClose(window);
+    return glfwWindowShouldClose(mWindow);
 }
 
 void Window::swapBuffers() {
-    glfwSwapBuffers(window);
+    glfwSwapBuffers(mWindow);
 }
 
 void Window::pollEvents() {
