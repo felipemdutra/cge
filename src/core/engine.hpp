@@ -15,8 +15,8 @@ namespace cge {
     private:
         void update();
 
-        Window& window;
-        Renderer& renderer;
+        Window& mWindow;
+        Renderer& mRenderer;
     };
 }
 

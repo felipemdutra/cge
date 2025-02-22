@@ -5,14 +5,14 @@
 using namespace cge;
 using std::make_unique;
 
-Renderer::Renderer() : shader(make_unique<Shader>()) { }
+Renderer::Renderer() : mShader(make_unique<Shader>()) { }
 
 Renderer::~Renderer() { }
 
 bool Renderer::init() {
     glEnable(GL_DEPTH_TEST);
 
-    shader->init("src/shaders/defaultVertex.glsl", "src/shaders/defaultFragment.glsl");
+    mShader->init("src/shaders/defaultVertex.glsl", "src/shaders/defaultFragment.glsl");
 
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
@@ -24,7 +24,7 @@ bool Renderer::init() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    shader->use();
+    mShader->use();
 
     return true;
 }

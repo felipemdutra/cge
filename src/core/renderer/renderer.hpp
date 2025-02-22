@@ -17,7 +17,7 @@ namespace cge {
         void draw();
 
     private:
-        std::unique_ptr<Shader> shader;
+        std::unique_ptr<Shader> mShader;
         unsigned int vao, vbo;
 
         // vertex data for simple triangle 
