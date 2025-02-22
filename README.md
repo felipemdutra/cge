@@ -9,6 +9,10 @@ It is written in C++ and uses OpenGL for rendering.
 
 I know, pretty embarrassing. But I'm working on it while having school for 9:30 hours a day AND learning Engine Architecture, so please be patient.
 
+## Planned Features
+- UI System
+- ECS (Entity Component System)
+
 ### Notes:
 The renderer currently initializes a VAO and VBO for a simple triangle.
 This will be changed in the future. The Renderer WILL NOT own the VAO and VBO.
