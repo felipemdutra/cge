@@ -16,16 +16,18 @@ Engine::Engine(Window& window, Renderer& renderer, Input& input)
 Engine::~Engine() { }
 
 void Engine::run() {
+
+    // Temporary input binding, just to test the input system
+    std::string walkForward = "WalkForward";
+    mInput.bindAction(walkForward, GLFW_KEY_W);
+    mInput.bindCallback(walkForward, [&]() {
+        std::cout << "Walking forward\n";
+    });
+
     while (!mWindow.shouldClose()) {
         mRenderer.clear(0.1f, 0.15f, 1.0f, 1.0f);
 
         mRenderer.draw();
-
-        std::string walkForward = "WalkForward";
-        mInput.bindAction(walkForward, GLFW_KEY_W);
-        mInput.bindCallback(walkForward, [&]() {
-            std::cout << "Walking forward\n";
-        });
 
         mInput.update();
 
