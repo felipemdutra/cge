@@ -27,6 +27,8 @@ void Engine::run() {
             std::cout << "Walking forward\n";
         });
 
+        mInput.update();
+
         mWindow.pollEvents();
         mWindow.swapBuffers();
     }
