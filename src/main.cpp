@@ -1,6 +1,7 @@
+#include "./core/window/window.hpp"
 #include "./core/engine.hpp"
-#include "./platform/window.hpp"
 #include "./core/renderer/renderer.hpp"
+#include "./core/input/input.hpp"
 #include <iostream>
 
 #define WINDOW_TITLE "CGE"
@@ -20,7 +21,13 @@ int main() {
         return -1;
     }
 
-    cge::Engine engine(window, renderer);
+    cge::Input input;
+    if (!input.init(window.getNativeWindow())) {
+        std::cerr << "Failed to initialize input" << std::endl;
+        return -1;
+    }
+
+    cge::Engine engine(window, renderer, input);
 
     engine.run();
 
