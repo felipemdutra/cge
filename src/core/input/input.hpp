@@ -12,6 +12,12 @@ namespace cge {
         public:
             using InputCallback = std::function<void()>;
 
+            /**
+             * init - Initializes the input system.
+             *
+             * @param window - The window to bind the input system to.
+             * @return bool - True if the input system was initialized successfully, false otherwise.
+             */
             bool init(GLFWwindow* window);
 
             /**
@@ -73,13 +79,19 @@ namespace cge {
             std::unordered_map<int, bool> mMouseButtonStates;
             std::unordered_map<int, bool> mPreviousMouseButtonStates;
 
-            bool keyDown(int key) const;
-
             /**
              * keyDown - Returns true if the key is currently pressed.
              *
              * @param key - The key to check.
-             * @return bool - True if the key is currently pressed, false otherwise.
+             * @return bool - True if the key is currently pressed.
+             */
+            bool keyDown(int key) const;
+
+            /**
+             * mouseButtonDown - Returns true if the mouse button is currently pressed.
+             *
+             * @param button - The mouse button to check.
+             * @return bool - True if the mouse button is currently pressed.
              */
             bool mouseButtonDown(int button) const;
     };
