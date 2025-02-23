@@ -19,15 +19,21 @@ void Engine::run() {
 
     // Temporary input binding, just to test the input system
     std::string walkForward = "WalkForward";
-    mInput.bindAction(walkForward, GLFW_KEY_W);
+    mInput.bindKeyAction(GLFW_KEY_W, walkForward);
     mInput.bindCallback(walkForward, [&]() {
         std::cout << "Walking forward\n";
     });
 
     std::string walkBackward = "WalkBackward";
-    mInput.bindAction(walkBackward, GLFW_KEY_S);
+    mInput.bindKeyAction(GLFW_KEY_S, walkBackward);
     mInput.bindCallback(walkBackward, [&]() {
         std::cout << "Walking backward\n";
+    });
+
+    std::string shoot = "Shoot";
+    mInput.bindMouseButtonAction(GLFW_MOUSE_BUTTON_1, shoot);
+    mInput.bindCallback(shoot, [&]() {
+        std::cout << "Shot\n";
     });
 
     while (!mWindow.shouldClose()) {
