@@ -24,6 +24,12 @@ void Engine::run() {
         std::cout << "Walking forward\n";
     });
 
+    std::string walkBackward = "WalkBackward";
+    mInput.bindAction(walkBackward, GLFW_KEY_S);
+    mInput.bindCallback(walkBackward, [&]() {
+        std::cout << "Walking backward\n";
+    });
+
     while (!mWindow.shouldClose()) {
         mRenderer.clear(0.1f, 0.15f, 1.0f, 1.0f);
 
