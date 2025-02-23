@@ -1,4 +1,5 @@
 #include <functional>
+#include <glm/glm.hpp>
 #include <string>
 
 class GLFWwindow;
@@ -13,8 +14,14 @@ namespace cge {
 
             bool init(GLFWwindow* window);
 
-            void bindAction(std::string& action, int key);
+            void bindKeyAction(int key, std::string& action);
+            void bindMouseButtonAction(int button, std::string& action);
+
             void bindCallback(std::string& action, InputCallback callback);
+
+            glm::vec2 getMousePosition() const;
+            float getMouseX() const;
+            float getMouseY() const;
 
             void update();
 
@@ -23,8 +30,8 @@ namespace cge {
         private:
             GLFWwindow* mWindow = nullptr;
 
-            // Key, action
             std::unordered_map<int, std::string> mKeyActions;
+            std::unordered_map<int, std::string> mMouseButtonActions;
 
             // Action, callback
             std::unordered_map<std::string, InputCallback> mActionCallbacks;
@@ -33,7 +40,11 @@ namespace cge {
             std::unordered_map<int, bool> mKeyStates;
             std::unordered_map<int, bool> mPreviousKeyStates;
 
+            std::unordered_map<int, bool> mMouseButtonStates;
+            std::unordered_map<int, bool> mPreviousMouseButtonStates;
+
             bool keyDown(int key) const;
+            bool mouseButtonDown(int button) const;
     };
 } // namespace cge
 
