@@ -10,12 +10,6 @@ Input::~Input() {
     mWindow = nullptr;
 }
 
-/**
-* init Initializes the input system.
-*
-* @param window - The window to bind the input to.
-* @return bool - True if the input system was initialized successfully, false otherwise.
-*/
 bool Input::init(GLFWwindow* window) { 
     assert(window && "Input::init - window is nullptr");
 
@@ -95,7 +89,7 @@ void Input::update() {
 
     for (const auto& [button, action] : mMouseButtonActions) {
         // Only execute callback if the button was pressed once.
-        if (mMouseButtonStates[button]) {
+        if (mMouseButtonStates[button] && !mPreviousMouseButtonStates[button]) {
             mActionCallbacks[action]();
         }
     }
