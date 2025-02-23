@@ -6,6 +6,10 @@
 
 using namespace cge;
 
+Input::~Input() {
+    mWindow = nullptr;
+}
+
 /**
 * init Initializes the input system.
 *
@@ -20,7 +24,12 @@ bool Input::init(GLFWwindow* window) {
         return false;
     }
 
-    sWindow = window;
+    mWindow = window;
+
+    mKeyActions.reserve(100);
+    mActionCallbacks.reserve(100);
+    mKeyStates.reserve(100);
+    mPreviousKeyStates.reserve(100);
 
     return true;
 }
@@ -34,6 +43,22 @@ void Input::bindCallback(std::string& action, InputCallback callback) {
 }
 
 bool Input::keyDown(int key) const {
-    return glfwGetKey(sWindow, key) == GLFW_PRESS;
+    return glfwGetKey(mWindow, key) == GLFW_PRESS;
+}
+
+void Input::update() {
+    // Update key states
+    for (const auto& [key, action] : mKeyStates) {
+        mPreviousKeyStates[key] = mKeyStates[key];
+        mKeyStates[key] = keyDown(key);
+    }
+
+    // Go over all key bindings, and check if the key has been pressed
+    for (const auto& [key, action] : mKeyActions) {
+        if (mKeyStates[key]) {
+            // Call the callback associated with the action
+            mActionCallbacks[action]();
+        }
+    }
 }
 
