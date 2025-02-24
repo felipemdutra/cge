@@ -1,6 +1,6 @@
 # Compiler and Flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra -I.
+CXXFLAGS = -std=c++17 -Wall -Wextra -Isrc -Isrc/core/editor/imgui -Isrc/core/editor/imgui/backends -I/usr/include/freetype2
 LDFLAGS = -g -lglfw -lGLEW -lGL -lm -ldl -lpthread
 
 # Project Structure
@@ -9,7 +9,7 @@ BUILD_DIR = build
 BIN_DIR = bin
 TARGET = $(BIN_DIR)/cge_engine
 
-# Find all source files
+# Find all source files (including ImGui)
 SRC_FILES = $(shell find $(SRC_DIR) -name '*.cpp')
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
