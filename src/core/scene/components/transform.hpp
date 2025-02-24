@@ -10,17 +10,8 @@ namespace cge::scene {
 
         // Model matrix can be calculated from local position, rotation, and scale
         // by calling updateTransform().
-        glm::mat4 mWorldModelMatrix = glm::mat4(1.0f);
-
+        glm::mat4 mModelMatrix = glm::mat4(1.0f);
         TransformComponent* mParent = nullptr;
-
-        glm::vec3 getPosition() const;
-        glm::quat getRotation() const;
-        glm::vec3 getScale() const;
-
-        glm::mat4 getLocalMatrix() const;
-
-        void updateTransform();
 
         ~TransformComponent();
     };
